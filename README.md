@@ -12,6 +12,10 @@ To use the modules in this repository, make sure you have the following packages
 * [Tensorflow 1.4 or above](https://www.tensorflow.org/)
 * [python_Levenshtein](https://pypi.org/project/python-Levenshtein/)
 
+## What is in this repository
+This repository contains the Python modules used to train seq2seq encoder-decoder models and infer with trained models. The **data** subdirectory contains a dataset used to train and test a 2-encoder network for sequences of block length 20. The **models** subdirectory contains models trained on the above data. The models above are able to outperform SCS and SMAP on reconstructing block length 20 sequences from 2 traces in terms of edit distance, for deletion channel probability from 0.1 to 0.5. 
+
+
 ## How to use
 To use this module, first clone or download this repository onto your machine. Once downloaded, navigate into the repository untill you see the subdirectory named **nmt**. Then, display the help message for this module by calling: 
 ``` shell
