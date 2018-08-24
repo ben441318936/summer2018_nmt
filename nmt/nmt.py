@@ -193,15 +193,25 @@ def add_arguments(parser):
 
   # Sequence lengths
   parser.add_argument("--src_max_len", type=int, default=50,
-                      help="Max length of src sequences during training.")
+                      help="""\
+                      Max length of src sequences during training. \
+                      MUST BE MANUALLY SPECIFIED TO A VALUE GREATER THAN THE MAX LEN OF THE SOURCE DATA WHEN USING MULTIPLE TRACE ATTENTION \
+                      """)
   parser.add_argument("--tgt_max_len", type=int, default=50,
-                      help="Max length of tgt sequences during training.")
+                      help="""\
+                      Max length of tgt sequences during training. \
+                      MUST BE MANUALLY SPECIFIED TO A VALUE GREATER THAN THE MAX LEN OF THE SOURCE DATA WHEN USING MULTIPLE TRACE ATTENTION \
+                      """)
   parser.add_argument("--src_max_len_infer", type=int, default=None,
-                      help="Max length of src sequences during inference.")
+                      help="""\
+                      Max length of src sequences during inference. \
+                      MUST BE MANUALLY SPECIFIED TO A VALUE GREATER THAN THE MAX LEN OF THE SOURCE DATA WHEN USING MULTIPLE TRACE ATTENTION \
+                      """)
   parser.add_argument("--tgt_max_len_infer", type=int, default=None,
                       help="""\
       Max length of tgt sequences during inference.  Also use to restrict the
       maximum decoding length.\
+      MUST BE MANUALLY SPECIFIED TO A VALUE GREATER THAN THE MAX LEN OF THE SOURCE DATA WHEN USING MULTIPLE TRACE ATTENTION \
       """)
 
   # Default settings works well (rarely need to change)
@@ -645,7 +655,7 @@ def run_main(flags, default_hparams, train_fn, inference_fn, target_session=""):
             metric,
             hparams.subword_option,
             flags.inference_input_file)
-        utils.print_out("  %s: %.2f" % (metric, np.abs(score)))
+        utils.print_out("  %s: %.3f" % (metric, np.abs(score)))
         
   elif flags.inference_input_prefix:
     hparams.inference_indices = None
