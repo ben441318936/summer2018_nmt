@@ -58,3 +58,8 @@ python -m nmt.nmt --out_dir=./nmt/models/model20_2encoder_avg_large/model0.1/bes
 
 **Note:** This repository include the necessary trained model to directly run the Example 3 inference command. 
 
+## Miscellaneous
+
+The trained models are stored as trained model checkpoints. Because the checkpoint data includes the weights and parameters of the network, the disk scpace usage might become very large. Consider limiting the number of checkpoints to save using ```--num_keep_ckpts```.
+
+The memory usage for this module is quite small when the sequence block lengths are relatively small (< 300). During the training of the models included in this repository, the memory usage did not exceed 1.5Gb.
