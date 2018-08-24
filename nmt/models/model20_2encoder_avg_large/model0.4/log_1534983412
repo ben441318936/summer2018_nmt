@@ -1,0 +1,4 @@
+# log_file=./nmt/temp/model20_2encoder_avg_large/model0.4/log_1534983412
+# Start step 10000, lr 0.0001, Wed Aug 22 17:17:45 2018
+# Final, step 10000 lr 0.0001 step-time 0.00s wps 0.00K ppl 0.000 gN 0.00 dev ppl 1.665, dev edit_distance 0.249, test ppl 1.664, test edit_distance 0.248, Wed Aug 22 17:18:40 2018
+# Best edit_distance, step 10000 lr 0.0001 step-time 0.00s wps 0.00K ppl 0.000 gN 0.00 dev ppl 1.665, dev edit_distance 0.249, test ppl 1.664, test edit_distance 0.248, Wed Aug 22 17:19:36 2018
