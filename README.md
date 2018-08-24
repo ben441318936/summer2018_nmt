@@ -19,7 +19,7 @@ python nmt.nmt -h
 ```
 
 ### Example 1
-The following command trains a seq2seq model that take an input trace and reconstruct a sequence. The network uses unidirectional encoders, 2 layers of LSTM cells for both the encoder and decoder, 128 units for each LSTM layers, 0.2 dropout rate during training, Adam optimizer with learning rate 0.0001, and luong multiplicative attention. The network will train for 40000 gradient step, outputing basic statistics like training speed, perplexity, etc, every 100 steps, and performs an external evaluation on the evaluation datset using the edit distance metric. 
+The following command trains a seq2seq model that take an input trace and reconstruct a sequence. The network uses unidirectional encoders, 2 layers of LSTM cells for both the encoder and decoder, 128 units for each LSTM layers, 0.2 dropout rate during training, Adam optimizer with learning rate 0.0001, and luong multiplicative attention. The network will train for 40000 gradient step, outputing basic statistics like training speed, perplexity, etc, every 100 steps, and performs an external evaluation on the evaluation datset using the edit distance metric every 500 steps. 
 
 ``` shell
 python -m nmt.nmt --src=trace --tgt=label --vocab_prefix=./path/to/vocab/vocab --share_vocab=True --train_prefix=./path/to/training/data/train --dev_prefix=./path/to/evaluation/data/val --test_prefix=./path/to/testing/data/test --out_dir=./path/to/where/you/want/to/store/model --num_train_steps=40000 --steps_per_stats=100 --steps_per_external_eval=500 --num_layers=2 --num_units=128 --dropout=0.2 --encoder_type=uni --optimizer=adam --learning_rate=0.0001 --src_max_len=30 --tgt_max_len=30 --src_max_len_infer=30 --num_traces=1 --metrics=edit_distance
